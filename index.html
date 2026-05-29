@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>West Buffalo Reiki — A Jikiden Reiki Practice</title>
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
+  <link rel="apple-touch-icon" href="assets/seal-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --olive:      #4A5C3A;
+      --olive-deep: #3B4A2E;
+      --cream:      #F0E8D5;
+      --gold:       #C4A84E;
+      --espresso:   #2E2A22;
+      --taupe:      #BDB0A0;
+      --terra:      #B5604A;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    h1, h2, h3 { margin: 0; }
+    p  { margin: 0; }
+    img { display: block; max-width: 100%; }
+    ol, ul { margin: 0; padding: 0; }
+    button { font-family: inherit; cursor: pointer; }
+    * { scrollbar-width: none; }
+    *::-webkit-scrollbar { display: none; }
+
+    body {
+      font-family: var(--sans);
+      background: #000;
+      color: var(--espresso);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Page column ─────────────────────────── */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout wrap ─────────────────────────── */
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Eyebrow ─────────────────────────────── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .eyebrow-line {
+      flex-shrink: 0;
+      height: 1px;
+      width: 22px;
+      background: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ── Book button ─────────────────────────── */
+    .book-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 17px 20px;
+      background: var(--olive);
+      color: var(--cream);
+      border: none;
+      border-radius: 5px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 1px 0 rgba(0,0,0,.05);
+      transition: background 150ms;
+    }
+    .book-btn:hover { background: var(--olive-deep); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       HERO
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .hero {
+      background: var(--espresso);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 6px;
+    }
+
+    /* Inner column — watermark is relative to this, not the full-width section */
+    .hero__inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero__watermark {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 93px;
+      opacity: .085;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,1) 95%,rgba(0,0,0,0) 100%);
+      mask-image:         linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 5%,rgba(0,0,0,1) 95%,rgba(0,0,0,0) 100%);
+    }
+    .hero__watermark img { width: 148px; height: 148px; }
+    @media (min-width: 680px) {
+      .hero__watermark { display: block; }
+    }
+
+
+    /* Nav inside hero */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px 12px;
+      position: relative;
+      z-index: 5;
+    }
+    .top-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+    .top-nav__seal { width: 38px; height: 38px; flex-shrink: 0; }
+    .top-nav__name { display: flex; flex-direction: column; line-height: 1; }
+    .top-nav__title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: .2px;
+    }
+    .top-nav__subtitle {
+      font-family: var(--sans);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+    .top-nav__book-link {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(196,168,78,.55);
+      padding: 8px 14px;
+      border-radius: 3px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 150ms, border-color 150ms;
+    }
+    .top-nav__book-link:hover {
+      background: rgba(196,168,78,.1);
+      border-color: var(--gold);
+    }
+
+    .top-nav__brand { flex-shrink: 0; }
+    .top-nav__title { white-space: nowrap; }
+
+    /* Hero content */
+    .hero__body {
+      padding: 38px 24px 56px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero__h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 44px;
+      line-height: 1.04;
+      letter-spacing: -.4px;
+      margin: 22px 0 0;
+      color: var(--cream);
+      text-wrap: pretty;
+    }
+    .hero__h1 span { display: block; }
+    .hero__sub {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--cream);
+      margin: 26px 0 0;
+      font-weight: 300;
+    }
+    .hero__p2 {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(240,232,213,.6);
+      margin: 16px 0 0;
+      font-weight: 300;
+    }
+    .hero__stamp {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 34px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(240,232,213,.5);
+      font-weight: 500;
+    }
+    .hero__dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       EARLY CTA
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .early-cta {
+      background: var(--cream);
+      border-top: 1px solid rgba(189,176,160,.33);
+    }
+    .early-cta .wrap { padding-top: 28px; padding-bottom: 20px; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHAT IS REIKI
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .what-is-reiki { background: var(--cream); }
+    .what-is-reiki .wrap { padding-top: 28px; padding-bottom: 48px; }
+    .wir__h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 1.14;
+      letter-spacing: -.3px;
+      color: var(--espresso);
+      margin: 18px 0 0;
+      text-wrap: pretty;
+    }
+    .wir__body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--espresso);
+      margin: 26px 0 0;
+      font-weight: 300;
+    }
+    .wir__body p + p    { margin-top: 16px; }
+    .wir__body p:last-child { margin-top: 20px; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       BENEFITS
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .benefits {
+      background: var(--cream);
+      border-top: 1px solid rgba(189,176,160,.33);
+    }
+    .benefits .wrap { padding-top: 52px; padding-bottom: 56px; }
+    .ben__h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.15;
+      color: var(--espresso);
+      margin: 16px 0 30px;
+      letter-spacing: -.2px;
+    }
+    .ben__disclaimer {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--espresso);
+      margin: 0 0 28px;
+      font-weight: 300;
+      text-wrap: pretty;
+    }
+    .ben__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .ben-card {
+      background: var(--cream);
+      border: 1px solid var(--taupe);
+      border-radius: 6px;
+      padding: 18px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      min-height: 188px;
+      position: relative;
+    }
+    .ben-card__num {
+      position: absolute;
+      top: 10px; right: 12px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .ben-card__icon { color: var(--olive); margin-bottom: 12px; }
+    .ben-card__title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--espresso);
+      line-height: 1.15;
+      letter-spacing: -.1px;
+    }
+    .ben-card__body {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: rgba(46,42,34,.72);
+      margin: 8px 0 0;
+      font-weight: 300;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       WHAT TO EXPECT
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .expect { background: var(--cream); border-top: 1px solid rgba(189,176,160,.33); }
+    .expect .wrap { padding-top: 56px; padding-bottom: 48px; }
+    .exp__h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.15;
+      color: var(--espresso);
+      margin: 16px 0 10px;
+      letter-spacing: -.2px;
+    }
+    .exp__sub {
+      font-family: var(--sans);
+      font-size: 16px;
+      color: var(--espresso);
+      margin: 0 0 28px;
+      font-weight: 300;
+      line-height: 1.55;
+    }
+    .exp__timeline {
+      list-style: none;
+      position: relative;
+    }
+    .exp__timeline::before {
+      content: '';
+      position: absolute;
+      left: 13px; top: 8px; bottom: 8px;
+      width: 1px;
+      background: rgba(189,176,160,.53);
+    }
+    .exp__step {
+      position: relative;
+      padding-left: 44px;
+      padding-bottom: 28px;
+    }
+    .exp__step:last-child { padding-bottom: 0; }
+    .exp__circle {
+      position: absolute;
+      left: 0; top: 2px;
+      width: 27px; height: 27px;
+      border-radius: 99px;
+      border: 1px solid var(--gold);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--olive);
+      font-weight: 500;
+      z-index: 1;
+    }
+    .exp__title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--espresso);
+      line-height: 1.2;
+    }
+    .exp__para {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 300;
+      color: var(--espresso);
+      margin-top: 6px;
+    }
+    .exp__para + .exp__para,
+    .exp__para + .exp__img,
+    .exp__img   + .exp__para { margin-top: 10px; }
+    .exp__img {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: var(--taupe);
+      margin-top: 14px;
+    }
+    .exp__img img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       ABOUT WAYNE
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .about {
+      background: var(--cream);
+      border-top: 1px solid rgba(189,176,160,.33);
+    }
+    .about .wrap { padding-top: 56px; padding-bottom: 56px; }
+    .about__photo-wrap {
+      margin-top: 18px;
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--espresso);
+    }
+    .about__photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .about__caption {
+      position: absolute;
+      bottom: 14px; right: 16px;
+      text-align: right;
+      color: rgba(240,232,213,.96);
+      text-shadow: 0 1px 10px rgba(0,0,0,.6);
+    }
+    .about__caption-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -.1px;
+    }
+    .about__caption-role {
+      font-family: var(--sans);
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 4px;
+      color: rgba(240,232,213,.82);
+    }
+    .about__h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.12;
+      letter-spacing: -.3px;
+      color: var(--espresso);
+      margin: 26px 0 0;
+      text-wrap: pretty;
+    }
+    .about__body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--espresso);
+      margin-top: 22px;
+      font-weight: 300;
+    }
+    .about__body p + p { margin-top: 14px; }
+    .about__sig {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(189,176,160,.53);
+    }
+    .about__sig-name {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--espresso);
+      letter-spacing: -.2px;
+      line-height: 1.1;
+    }
+    .about__sig-title {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       RESEARCH
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .research {
+      background: var(--espresso);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .research__rules {
+      position: absolute; inset: 0;
+      opacity: .07;
+      pointer-events: none;
+      background-image: repeating-linear-gradient(135deg, #C4A84E 0 1px, transparent 1px 24px);
+    }
+    .research .wrap {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .res__h2 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 38px;
+      line-height: 1.04;
+      margin: 18px 0 0;
+      letter-spacing: -.4px;
+      color: var(--cream);
+      text-wrap: balance;
+    }
+    .res__sub {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(240,232,213,.78);
+      margin: 22px 0 0;
+      font-weight: 300;
+    }
+    .res__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 32px 0 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(196,168,78,.33);
+    }
+    .res__stat-label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 26px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .res__stat-desc {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      color: rgba(240,232,213,.62);
+      letter-spacing: .4px;
+      margin-top: 7px;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+    .res__link {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      transition: background 150ms;
+    }
+    .res__link:hover { background: rgba(196,168,78,.08); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       SERVICES
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .services {
+      background: var(--cream);
+      border-top: 1px solid rgba(189,176,160,.33);
+    }
+    .services .wrap { padding-top: 56px; padding-bottom: 48px; }
+    .svc__h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -.3px;
+      color: var(--espresso);
+      margin: 16px 0 28px;
+    }
+    .svc-item {
+      padding: 22px 0 24px;
+      border-top: 1px solid var(--taupe);
+      position: relative;
+    }
+    .svc-item:last-of-type { border-bottom: 1px solid var(--taupe); }
+    .svc-item__tag {
+      position: absolute;
+      top: -9px; left: 0;
+      background: var(--gold);
+      color: var(--espresso);
+      font-family: var(--sans);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .svc-item__title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 21px;
+      color: var(--espresso);
+      line-height: 1.2;
+      letter-spacing: -.1px;
+    }
+    .svc-item__meta {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 7px;
+    }
+    .svc-item__note {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--terra);
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 13px;
+      margin-left: 8px;
+    }
+    .svc-item__body {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 300;
+      color: var(--espresso);
+      margin: 10px 0 0;
+    }
+    .svc__cta { margin-top: 32px; }
+    .svc__note {
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: rgba(46,42,34,.55);
+      margin: 14px 0 0;
+      text-align: center;
+      letter-spacing: .1px;
+    }
+    .svc__note strong { color: var(--espresso); font-weight: 500; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       FOOTER
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    footer {
+      background: var(--espresso);
+      color: var(--cream);
+    }
+    footer .wrap { padding-top: 38px; padding-bottom: 44px; }
+    .ft__brand { display: flex; align-items: center; gap: 14px; }
+    .ft__seal { width: 56px; height: 56px; flex-shrink: 0; }
+    .ft__name {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--cream);
+    }
+    .ft__subtitle {
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .ft__rule {
+      height: 1px;
+      background: rgba(196,168,78,.25);
+      margin: 26px 0 22px;
+    }
+    .ft__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px 14px;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: rgba(240,232,213,.72);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .ft__label {
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .ft__link {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid rgba(196,168,78,.33);
+    }
+    .ft__copyright {
+      margin-top: 32px;
+      font-family: var(--sans);
+      font-size: 10.5px;
+      letter-spacing: 1.4px;
+      color: rgba(240,232,213,.4);
+      font-weight: 400;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       STICKY BOOK BAR
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .sticky-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 40;
+      transform: translateY(120%);
+      transition: transform 320ms cubic-bezier(.2,.7,.2,1);
+      pointer-events: none;
+    }
+    .sticky-bar.is-visible {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-bar .wrap {
+      padding-top: 10px;
+      padding-bottom: 14px;
+      padding-bottom: max(14px, calc(14px + env(safe-area-inset-bottom)));
+      background: linear-gradient(180deg,rgba(240,232,213,0) 0%,rgba(240,232,213,.95) 28%,rgba(240,232,213,1) 100%);
+    }
+
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+    <div class="hero__watermark" aria-hidden="true">
+      <img src="assets/seal-512.png" alt="" width="360" height="360">
+    </div>
+<nav class="top-nav" aria-label="Site navigation">
+      <div class="top-nav__brand">
+        <img class="top-nav__seal" src="assets/seal-512.png" alt="West Buffalo Reiki seal">
+        <div class="top-nav__name">
+          <span class="top-nav__title">West Buffalo Reiki</span>
+          <span class="top-nav__subtitle">A Jikiden Reiki Practice</span>
+        </div>
+      </div>
+      <a class="top-nav__book-link" href="https://book.squareup.com/appointments/pq6n0tx6c18fwi/location/LY8MJ2AP319DX/services" target="_blank" rel="noopener">Book a Session &rarr;</a>
+    </nav>
+
+    <div class="hero__body">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Traditional Japanese Reiki</span>
+      </div>
+
+      <h1 class="hero__h1">
+        <span>There&#8217;s another way</span>
+        <span>to find relief.</span>
+      </h1>
+
+      <p class="hero__sub">
+        <strong style="font-weight:500;">Reiki (<em style="font-family:var(--serif);font-style:italic;color:var(--gold);">&#8220;ray-key&#8221;</em>) is an energy healing technique</strong> <span style="color:rgba(240,232,213,.6);">offered at major hospital systems as a complementary practice</span> <strong style="font-weight:500;">for those experiencing anxiety, pain, fatigue, or serious illness.</strong>
+      </p>
+      <p class="hero__p2">
+        <strong style="font-weight:500;color:var(--cream);">Book a session and try <em style="font-family:var(--serif);font-style:italic;color:var(--gold);">Jikiden Reiki</em></strong><span style="color:rgba(240,232,213,.6);"> &#8212; the direct-lineage method practiced and passed down in Japan for over a century.</span>
+      </p>
+
+      <div class="hero__stamp">
+        <span>116 WEST AVE, BUFFALO, NY</span>
+        <span class="hero__dot"></span>
+        <span>(716) 333-5188</span>
+      </div>
+    </div>
+    </div><!-- /.hero__inner -->
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       EARLY CTA
+  ═══════════════════════════════════════ -->
+  <section class="early-cta" id="book-cta">
+    <div class="wrap">
+      <button class="book-btn js-book" type="button">
+        Book a Session
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+          <path d="M1 5h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHAT IS REIKI
+  ═══════════════════════════════════════ -->
+  <section class="what-is-reiki" id="what-is-reiki">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>What is Reiki?</span>
+      </div>
+      <h2 class="wir__h2">
+        Your body already knows how to heal.
+        <em style="font-style:italic;font-weight:400;color:rgba(46,42,34,.55);">Reiki helps it do that.</em>
+      </h2>
+      <div class="wir__body">
+        <p>Have you noticed that children seem to recover from injuries much faster than adults &#8212; and that elderly people tend to heal more slowly still?</p>
+        <p>This can be understood through the concept of life force energy, or <em style="font-family:var(--serif);font-style:italic;font-weight:500;">ki</em> in Japanese. When the body is unwell, it draws on its ki to restore balance. The more freely ki flows, the more readily the body can repair itself. Children are brimming with it. As we age and go through the ups and downs of life, that natural flow can become depleted or obstructed.</p>
+        <p>Reiki is a simple and gentle healing practice in which a trained practitioner enters a calm and open state of mind, allowing energy to flow freely while placing their hands on or near the recipient&#8217;s body. The body draws what it needs to support its natural ability to heal.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       BENEFITS
+  ═══════════════════════════════════════ -->
+  <section class="benefits" id="benefits">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>What people notice</span>
+      </div>
+      <h2 class="ben__h2">What clients actually report.</h2>
+      <p class="ben__disclaimer">
+        <strong style="font-weight:600;color:var(--espresso);">Reiki is a complementary practice</strong><span style="color:var(--espresso);"> and works best alongside &#8212; not instead of &#8212; medical care. The experiences below are what clients have shared.</span> <strong style="font-weight:600;color:var(--espresso);">Results vary, and nothing here is a medical claim.</strong>
+      </p>
+
+      <div class="ben__grid">
+
+        <div class="ben-card">
+          <span class="ben-card__num">01</span>
+          <div class="ben-card__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M6 22c0-4 4-7 8-7s7 2 7 5-3 4-5 4-3-1-3-3 2-3 4-3 5 1 7 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="29" cy="22" r="1.4" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="ben-card__title">Stress &amp; Anxiety</h3>
+          <p class="ben-card__body">Settles the wired-but-tired state. Drops the volume on a nervous system stuck on alert.</p>
+        </div>
+
+        <div class="ben-card">
+          <span class="ben-card__num">02</span>
+          <div class="ben-card__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M12 28c0-6 3-10 6-10s6 4 6 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="23" cy="20" r="2.6" fill="currentColor" opacity=".18"/>
+              <circle cx="23" cy="20" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="ben-card__title">Pain Support</h3>
+          <p class="ben-card__body">Used for over a century alongside medical care for chronic, recovery, and post-injury pain.</p>
+        </div>
+
+        <div class="ben-card">
+          <span class="ben-card__num">03</span>
+          <div class="ben-card__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M22 7a10 10 0 100 18 8 8 0 010-18z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+              <path d="M8 30h20" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".45"/>
+            </svg>
+          </div>
+          <h3 class="ben-card__title">Sleep Quality</h3>
+          <p class="ben-card__body">Many clients report falling asleep faster and waking up fewer times in the night.</p>
+        </div>
+
+        <div class="ben-card">
+          <span class="ben-card__num">04</span>
+          <div class="ben-card__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              <path d="M5 25h26" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M9 25a9 9 0 0118 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M18 10v-4M27 14l2.5-2.5M9 14l-2.5-2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="ben-card__title">Fatigue &amp; Burnout</h3>
+          <p class="ben-card__body">For the always-on. A 60-minute reset for people whose battery never gets back to full.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WHAT TO EXPECT
+  ═══════════════════════════════════════ -->
+  <section class="expect" id="what-to-expect">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>Your first session</span>
+      </div>
+      <h2 class="exp__h2">Here&#8217;s what to expect.</h2>
+      <p class="exp__sub">Simple and straightforward. You&#8217;ll know exactly what&#8217;s coming before you walk in.</p>
+
+      <ol class="exp__timeline">
+
+        <li class="exp__step">
+          <span class="exp__circle">1</span>
+          <h3 class="exp__title">Arrive</h3>
+          <p class="exp__para">Find us at 116 West Ave &#8212; conveniently located along the NFTA-Metro #3 bus line, with street parking available on West Ave and surrounding streets.</p>
+          <p class="exp__para">You&#8217;ll be welcomed at the door and accompanied upstairs to the dedicated 2nd floor space. <strong style="font-weight:600;color:var(--espresso);">If stairs are a concern, please book a travel session and I will come to you instead.</strong></p>
+          <div class="exp__img">
+            <img src="assets/wbrlocation.png" alt="West Buffalo Reiki at 116 West Ave">
+          </div>
+        </li>
+
+        <li class="exp__step">
+          <span class="exp__circle">2</span>
+          <h3 class="exp__title">Intake</h3>
+          <p class="exp__para">We&#8217;ll talk briefly about what brought you in &#8212; sleep, pain, stress, or anything on your mind. This is a good time to mention any areas you&#8217;d like extra attention, or anywhere you&#8217;d prefer not to be touched.</p>
+          <p class="exp__para">Please silence your phone before we begin.</p>
+        </li>
+
+        <li class="exp__step">
+          <span class="exp__circle">3</span>
+          <h3 class="exp__title">Session</h3>
+          <p class="exp__para">You&#8217;ll lie face-up on a comfortable, heated table &#8212; fully clothed, shoes off &#8212; with freshly laundered sheets and soft sound bath music in the background.</p>
+          <div class="exp__img">
+            <img src="assets/reikisession.jpeg" alt="Reiki session in progress">
+          </div>
+          <p class="exp__para">Hands are placed gently on various areas of the body, with a Japanese towel between the hands and your head. Most time is spent on the head and any areas you&#8217;ve asked for support. You&#8217;ll be asked to turn face-down at some point so the back can be addressed as well.</p>
+          <p class="exp__para">You might feel warmth, tingling, or a deep sense of stillness &#8212; or simply nothing at all. Most people drift. Many fall asleep.</p>
+          <p class="exp__para">The session closes with a gentle Japanese rubbing and tapping technique to help the body integrate and re-energize.</p>
+        </li>
+
+        <li class="exp__step">
+          <span class="exp__circle">4</span>
+          <h3 class="exp__title">After</h3>
+          <p class="exp__para">We&#8217;ll take a few minutes to talk through how the session felt and answer any questions you have.</p>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT WAYNE
+  ═══════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>About your practitioner</span>
+      </div>
+
+      <div class="about__photo-wrap">
+        <img class="about__photo" src="assets/waynecastillo.jpeg" alt="Wayne Castillo, Jikiden Reiki Practitioner">
+        <div class="about__caption">
+          <div class="about__caption-name">Wayne Castillo, Jikiden Reiki Practitioner</div>
+          <div class="about__caption-role">West Buffalo Reiki</div>
+        </div>
+      </div>
+
+      <h2 class="about__h2">
+        How a tech career led me to
+        <em style="font-style:italic;font-weight:400;color:rgba(46,42,34,.55);">traditional Japanese healing.</em>
+      </h2>
+
+      <div class="about__body">
+        <p>For over two decades I worked in the tech industry &#8212; at companies like Microsoft, TIBCO, and MedImpact, navigating complex systems, high-stakes projects, and the particular kind of exhaustion that comes from a fast-paced and stressful career.</p>
+        <p>Alongside that career, I explored many types of spiritual and meditation practices, eventually settling on the Kriya Yoga of Lahiri Mahasaya. Through that practice I discovered that I could unblock stuck energy within my body &#8212; back pain disappeared, flexibility improved, and I was finally able to let go of long-held grudges and past failures.</p>
+        <p>But I wondered: could I help my family and other people experience this kind of release, without asking them to take up a meditation practice first? Reiki was that answer.</p>
+        <p>I trained in Jikiden Reiki, an authentic Japanese lineage preserved before the proliferation of new styles that emerged in the West from the 1980s onward. <em style="font-family:var(--serif);font-style:italic;font-weight:500;">Jikiden</em> <span style="font-family:var(--serif);font-style:normal;font-weight:400;">(直傳)</span> means &#8220;directly taught.&#8221; Mikao Usui, the founder of Usui Reiki Ryoho, taught Dr. Chujiro Hayashi &#8212; a former captain and physician of the Imperial Japanese Navy. Dr. Hayashi taught Chiyoko Yamaguchi when she was just 17 years old. She continued to practice in Japan for over 65 years until her passing in 2003, and taught her son Tadao Yamaguchi, who is the current president of the Jikiden Reiki Institute, headquartered in Kyoto, Japan. The Yamaguchi family taught Frank &#8220;Arjava&#8221; Petter, a researcher and author who brought the original Japanese Reiki teachings to a Western audience. My teacher, Lorraine George-Young, received her Jikiden training directly from Arjava.</p>
+        <p>What drew me to Jikiden specifically was its simplicity and fidelity to the original teaching. As someone who has long appreciated Japanese culture and its tradition of preserving craft across generations, Jikiden felt like a natural home.</p>
+        <p>It also answered something I&#8217;d wondered about since childhood. There&#8217;s a scene in <em style="font-family:var(--serif);font-style:italic;font-weight:500;">The Karate Kid</em> where Mr. Miyagi places his hands on Daniel&#8217;s injured knee &#8212; rubbing them together, holding them still, and somehow making the pain go away. I didn&#8217;t have a name for what that was at the time. Now I do.</p>
+        <p>In Japan, Reiki was something practitioners brought to their families and neighbors. West Buffalo Reiki is here to offer this traditional practice to the people of this neighborhood and community.</p>
+      </div>
+
+      <div class="about__sig">
+        <div class="about__sig-name">Wayne Castillo</div>
+        <div class="about__sig-title">Certified Jikiden Reiki Practitioner · Okuden Degree</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       RESEARCH
+  ═══════════════════════════════════════ -->
+  <section class="research" id="research">
+    <div class="research__rules" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>The Evidence</span>
+      </div>
+
+      <h2 class="res__h2">
+        The research has <em style="font-style:italic;font-weight:400;color:var(--gold);">caught up.</em>
+      </h2>
+
+      <p class="res__sub">
+        In peer-reviewed trials, Reiki has been <em style="font-family:var(--serif);font-style:italic;color:var(--cream);font-weight:400;">associated with</em> reduced pain scores, lower anxiety, and measurable improvement in heart rate variability.
+      </p>
+
+      <div class="res__stats">
+        <div>
+          <div class="res__stat-label">Pain</div>
+          <div class="res__stat-desc">Reduced self-reported scores</div>
+        </div>
+        <div>
+          <div class="res__stat-label">Anxiety</div>
+          <div class="res__stat-desc">Lower STAI ratings post-session</div>
+        </div>
+        <div>
+          <div class="res__stat-label">HRV</div>
+          <div class="res__stat-desc">Measurable cardiac improvement</div>
+        </div>
+      </div>
+
+      <a class="res__link" href="assets/reiki-research.pdf" target="_blank" rel="noopener">
+        See the Research
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+          <path d="M1 5h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════ -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span>What we offer</span>
+      </div>
+      <h2 class="svc__h2">Services</h2>
+
+      <article class="svc-item">
+        <h3 class="svc-item__title">Jikiden Reiki at West Buffalo Reiki</h3>
+        <div class="svc-item__meta">60 minutes · $75</div>
+        <p class="svc-item__body">You&#8217;ll rest fully clothed on a heated treatment table with gentle sound bath music in the background. Sessions take place at 116 West Ave on the Lower West Side &#8212; served by the NFTA-Metro #3 bus, with street parking available on West Ave and surrounding streets.</p>
+        <p class="svc-item__body">Please arrive 5 minutes early. If stairs are a concern, please book a travel session instead.</p>
+      </article>
+
+      <article class="svc-item">
+        <h3 class="svc-item__title">Jikiden Reiki Travel Session</h3>
+        <div class="svc-item__meta">60 minutes · $120</div>
+        <p class="svc-item__body">I will travel to your WNY location, bringing the heated treatment table to you. Ideal for those with limited mobility, postoperative recovery, hospice care, or anyone who simply prefers the comfort of their own home or facility.</p>
+        <p class="svc-item__body">Please ensure the session space is free of distractions &#8212; including pets, children, and other people &#8212; so you can rest and receive fully.</p>
+      </article>
+
+      <div class="svc__cta">
+        <button class="book-btn js-book" type="button">
+          Book a Session
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+            <path d="M1 5h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+          </svg>
+        </button>
+        <p class="svc__note">Opens our scheduler &middot; or call <strong>(716) 333-5188</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="wrap">
+      <div class="ft__brand">
+        <img class="ft__seal" src="assets/seal-512.png" alt="West Buffalo Reiki seal">
+        <div>
+          <div class="ft__name">West Buffalo Reiki</div>
+          <div class="ft__subtitle">A Jikiden Reiki Practice</div>
+        </div>
+      </div>
+
+      <div class="ft__rule"></div>
+
+      <div class="ft__grid">
+        <div>
+          <div class="ft__label">Visit</div>
+          116 West Ave<br>
+          Buffalo, NY 14201
+        </div>
+        <div>
+          <div class="ft__label">Reach</div>
+          (716) 333-5188<br>
+          wayne@westbuffaloreiki.com
+        </div>
+        <div>
+          <div class="ft__label">Hours</div>
+          Mon &#8211; Fri<br>
+          By Appointment
+        </div>
+        <div>
+          <div class="ft__label">More</div>
+          <a class="ft__link" href="assets/reiki-research.pdf" target="_blank" rel="noopener">Research</a>
+        </div>
+      </div>
+
+      <p class="ft__copyright">&#169; 2026 West Buffalo Reiki LLC · A Jikiden Reiki Practice</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       STICKY BOOK BAR
+  ═══════════════════════════════════════ -->
+  <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+    <div class="wrap">
+      <button class="book-btn js-book" type="button">
+        Book a Session
+        <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true">
+          <path d="M1 5h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       TOAST
+  ═══════════════════════════════════════ -->
+
+</div><!-- /.page-wrap -->
+
+  <script>
+    // Sticky bar: show after early CTA leaves view, hide when footer enters
+    (function () {
+      var bar    = document.getElementById('sticky-bar');
+      var cta    = document.getElementById('book-cta');
+      var footer = document.getElementById('footer');
+      var ctaOut = false, footerIn = false;
+
+      function update() {
+        var show = ctaOut && !footerIn;
+        bar.classList.toggle('is-visible', show);
+        bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.target === cta)    ctaOut   = !e.isIntersecting;
+          if (e.target === footer)  footerIn =  e.isIntersecting;
+        });
+        update();
+      }, { threshold: 0 });
+
+      io.observe(cta);
+      io.observe(footer);
+    }());
+
+    // Book buttons: navigate
+    (function () {
+      document.querySelectorAll('.js-book').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          window.open('https://book.squareup.com/appointments/pq6n0tx6c18fwi/location/LY8MJ2AP319DX/services', '_blank', 'noopener');
+        });
+      });
+    }());
+  </script>
+
+</body>
+</html>
