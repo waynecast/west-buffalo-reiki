@@ -751,6 +751,87 @@
     }
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       CREDENTIALS ROW (About + Footer)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .cred-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(189,176,160,.53);
+    }
+    .cred-row__badge {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .cred-row__text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cred-row__label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .cred-row__name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--espresso);
+      line-height: 1.2;
+      letter-spacing: -.1px;
+    }
+    .cred-row__sub {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--taupe);
+      letter-spacing: .3px;
+      margin-top: 1px;
+    }
+
+    /* Footer credential variant */
+    .ft__cred {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ft__cred-badge {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .ft__cred-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .ft__cred-name {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(240,232,213,.72);
+      line-height: 1.3;
+    }
+    .ft__cred-sub {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(240,232,213,.4);
+      letter-spacing: .2px;
+      margin-top: 2px;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        STICKY BOOK BAR
     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     .sticky-bar {
@@ -1019,6 +1100,17 @@
         <div class="about__sig-name">Wayne Castillo</div>
         <div class="about__sig-title">Certified Jikiden Reiki Practitioner · Okuden Degree</div>
       </div>
+
+      <div class="cred-row">
+        <a href="https://www.iarpreiki.org/Sys/PublicProfile/98187988" target="_blank" rel="noopener" aria-label="IARP Member — International Association of Reiki Professionals">
+          <img class="cred-row__badge" src="assets/iarp-badge.jpeg" alt="IARP Registered Reiki Professional badge">
+        </a>
+        <div class="cred-row__text">
+          <span class="cred-row__label">Professional Membership</span>
+          <span class="cred-row__name">IARP Member · 2026</span>
+          <span class="cred-row__sub">International Association of Reiki Professionals · Registered Reiki Professional</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1136,6 +1228,16 @@
         <div>
           <div class="ft__label">More</div>
           <a class="ft__link" href="assets/reiki-research.pdf" target="_blank" rel="noopener">Research</a>
+        </div>
+        <div>
+          <div class="ft__label">Member</div>
+          <a class="ft__cred" href="https://www.iarpreiki.org/Sys/PublicProfile/98187988" target="_blank" rel="noopener" aria-label="IARP Member">
+            <img class="ft__cred-badge" src="assets/iarp-badge.jpeg" alt="IARP badge">
+            <div class="ft__cred-text">
+              <span class="ft__cred-name">IARP Member</span>
+              <span class="ft__cred-sub">Registered Reiki Professional</span>
+            </div>
+          </a>
         </div>
       </div>
 
